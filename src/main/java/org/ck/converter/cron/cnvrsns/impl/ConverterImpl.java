@@ -25,7 +25,7 @@ public class ConverterImpl implements Converter{
 	@Override
 	public String convertDaysOfMonth(String[] inar, String inputTimeZone) {
 		
-		return null;
+		return new DayOfMonthConverter(inar[3]).convert(inar, inputTimeZone);
 	}
 
 	@Override

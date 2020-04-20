@@ -72,6 +72,9 @@ public class MinutesConverter {
         
         for (int i = 0; i < mins.length; i++) {
             tmp[1] = mins[i];
+            //Slash is a special case when it comes to cron...if '/' is there
+			//it means there are only two numbers which says to run both hours.
+			//Hence it can be stop conversion after 2nd item
             if (i == 1) {
             	convertedMinsWithSlash.append( "/" ).append( tmp[i] ).append(" ");
                 continue;

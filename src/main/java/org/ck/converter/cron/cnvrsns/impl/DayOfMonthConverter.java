@@ -4,7 +4,43 @@ import org.ck.converter.cron.ConversionFactory;
 
 public class DayOfMonthConverter {
 
-	public String applyConversionWithHyphen(String[] inar, String inputTimeZone) throws Exception {
+    short category = 0;
+
+    public DayOfMonthConverter(String daysOfMonthStr) {
+        if ("*".equals(daysOfMonthStr) || "?".equalsIgnoreCase(daysOfMonthStr)) {
+            category = 0;
+        } else if (daysOfMonthStr.contains("/")) {
+            category = 1;
+        } else if (daysOfMonthStr.contains("-")) {
+            category = 2;
+        }
+    }
+
+    public String convert(String[] inputsExpAsArray, String inputTimeZone)  {
+
+        try {
+            switch (category) {
+                case 1:
+                    return conversion4rSlashSeparation(inputsExpAsArray, inputTimeZone);
+                case 2:
+                    return conversion4rHyphenSeparation(inputsExpAsArray, inputTimeZone);
+                default:
+                    return withoutConversion(inputsExpAsArray, inputTimeZone);
+            }
+        }catch(Exception exp) {
+
+            System.err.println(exp.getMessage());
+            throw new RuntimeException(exp);
+        }
+
+    }
+
+    public String withoutConversion(String[] inar, String timeZone) {
+        return inar[3];
+    }
+
+
+	public String conversion4rHyphenSeparation(String[] inar, String inputTimeZone) throws Exception {
 		
 		StringBuffer monthOfDay = new StringBuffer();
         String[] tmp = inar;
@@ -25,7 +61,7 @@ public class DayOfMonthConverter {
         return monthOfDay.toString();
 	}
 	
-	public String applyConversionWithSlash(String[] inputarray, String inputTimeZone) throws Exception {
+	public String conversion4rSlashSeparation(String[] inputarray, String inputTimeZone) throws Exception {
 
 		StringBuffer monthOfDay = new StringBuffer();
         String[] tmp = inputarray;
@@ -47,11 +83,7 @@ public class DayOfMonthConverter {
 
 		return monthOfDay.toString();
 	}
-	
-	public String convertMinsElse(String[] inputsExpAsArray, String inputTimeZone) {
-		
-		return inputsExpAsArray[3];
-	}
+
 	
 	private static String buildExpressionFromArray(String[] ar) {
         String exp = "";
