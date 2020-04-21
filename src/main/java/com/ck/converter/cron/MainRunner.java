@@ -4,7 +4,7 @@ import com.ck.converter.cron.cnvrsns.Converter;
 import com.ck.converter.cron.cnvrsns.impl.ConverterImpl;
 import org.quartz.CronExpression;
 
-public class DemoApplication {
+public class MainRunner {
 	
 	private static final String INPUT = "1 30 1 1-20 * ?";
 
