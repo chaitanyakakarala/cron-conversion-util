@@ -31,7 +31,7 @@ public class ConverterImpl implements Converter{
 	@Override
 	public String convertWeekDayOfMonth(String[] inar, String inputTimeZone) {
 		
-		return null;
+		return new WeekDayConverter(inar[5]).convert(inar, inputTimeZone);
 	}
 
 	@Override
