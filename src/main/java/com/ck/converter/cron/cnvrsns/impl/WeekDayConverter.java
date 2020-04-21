@@ -1,6 +1,6 @@
-package org.ck.converter.cron.cnvrsns.impl;
+package com.ck.converter.cron.cnvrsns.impl;
 
-import org.ck.converter.cron.ConversionFactory;
+import com.ck.converter.cron.ConversionFactory;
 
 public class WeekDayConverter {
 

@@ -1,7 +1,7 @@
-package org.ck.converter.cron;
+package com.ck.converter.cron;
 
-import org.ck.converter.cron.cnvrsns.Converter;
-import org.ck.converter.cron.cnvrsns.impl.ConverterImpl;
+import com.ck.converter.cron.cnvrsns.Converter;
+import com.ck.converter.cron.cnvrsns.impl.ConverterImpl;
 import org.quartz.CronExpression;
 
 public class DemoApplication {

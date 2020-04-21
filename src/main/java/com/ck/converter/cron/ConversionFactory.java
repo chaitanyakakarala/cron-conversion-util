@@ -1,4 +1,4 @@
-package org.ck.converter.cron;
+package com.ck.converter.cron;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

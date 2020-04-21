@@ -1,4 +1,4 @@
-package org.ck.converter.cron.cnvrsns;
+package com.ck.converter.cron.cnvrsns;
 
 public interface Converter {
 
